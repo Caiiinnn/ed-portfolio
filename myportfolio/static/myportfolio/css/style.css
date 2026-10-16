@@ -921,7 +921,7 @@ kbd {
   .follow-stats { grid-column: 1 / -1; margin: 12px 0 14px; }
   .profile-details { grid-column: 1 / -1; margin-bottom: 12px; }
   .sidebar-section { grid-column: 1 / -1; margin-top: 12px; }
-  .interests { display: none; }
+  .interests { display: block; visibility: visible; }
   .readme-title-row h2 { font-size: 22px; }
   .repo-grid { grid-template-columns: 1fr; }
   .repo-card { min-height: 125px; }
