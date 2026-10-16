@@ -59,28 +59,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const initial = location.hash.replace("#", "");
   if (initial) activateTab(initial);
 
-  // Mock contribution graph (52 weeks x 7 days)
+  // Mock contribution graph for the full 2026 calendar year.
+  // Contributions are shown from January through October; November and December stay empty.
   const grid = document.getElementById("contribution-grid");
   const tooltip = document.getElementById("graph-tooltip");
-  const totalWeeks = 52;
-  const totalDays = totalWeeks * 7;
-  const today = new Date();
-  const start = new Date(today);
-  start.setDate(today.getDate() - (totalDays - 1));
-  start.setHours(12, 0, 0, 0);
+  const year = 2026;
+  const start = new Date(year, 0, 1, 12, 0, 0, 0);
+  const end = new Date(year, 11, 31, 12, 0, 0, 0);
+  const totalDays = Math.round((end - start) / 86400000) + 1;
+  const totalWeeks = 53;
   const dateFmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" });
   let total = 0;
+
+  // Pad the first week so columns align Sunday through Saturday, like GitHub.
+  for (let pad = 0; pad < start.getDay(); pad++) {
+    const blank = document.createElement("span");
+    blank.className = "contribution-cell contribution-empty";
+    blank.setAttribute("aria-hidden", "true");
+    grid.appendChild(blank);
+  }
+
   for (let i = 0; i < totalDays; i++) {
     const day = new Date(start);
     day.setDate(start.getDate() + i);
-    // Stable pseudo-random pattern, with quieter weekends.
-    let seed = Math.abs(Math.sin((i + 17) * 12.9898) * 43758.5453) % 1;
-    if (day.getDay() === 0 || day.getDay() === 6) seed *= .64;
-    let level = seed > .91 ? 4 : seed > .76 ? 3 : seed > .55 ? 2 : seed > .32 ? 1 : 0;
-    if (Math.random() < .09) level = 0;
-    const counts = [0, 1, 3, 6, 10];
-    const count = counts[level];
+    let count = 0;
+
+    // Keep the same sparse activity level, and leave Nov-Dec completely empty.
+    if (day.getMonth() < 10) {
+      let seed = Math.abs(Math.sin((i + 17) * 12.9898) * 43758.5453) % 1;
+      if (day.getDay() === 0 || day.getDay() === 6) seed *= .48;
+      const level = seed > .985 ? 4 : seed > .95 ? 3 : seed > .88 ? 2 : seed > .72 ? 1 : 0;
+      const counts = [0, 1, 2, 4, 7];
+      count = counts[level];
+    }
+
     total += count;
+    const level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count === 4 ? 3 : 4;
     const cell = document.createElement("button");
     cell.type = "button";
     cell.className = `contribution-cell level-${level}`;
@@ -90,24 +104,28 @@ document.addEventListener("DOMContentLoaded", () => {
     cell.addEventListener("focus", () => { tooltip.textContent = `${count} contribution${count === 1 ? "" : "s"} on ${dateFmt.format(day)}`; });
     grid.appendChild(cell);
   }
+
+  // Pad the final week to keep the year grid rectangular.
+  while (grid.children.length < totalWeeks * 7) {
+    const blank = document.createElement("span");
+    blank.className = "contribution-cell contribution-empty";
+    blank.setAttribute("aria-hidden", "true");
+    grid.appendChild(blank);
+  }
   document.getElementById("contribution-total").textContent = total.toLocaleString("en-US");
 
-  // Month labels aligned approximately to week columns.
+  // Place month labels above the week column where each month begins.
   const monthLabels = document.getElementById("month-labels");
-  const months = [];
-  for (let w = 0; w < totalWeeks; w++) {
-    const d = new Date(start);
-    d.setDate(start.getDate() + w * 7);
-    const label = d.toLocaleDateString("en-US", { month: "short" });
-    if (!months.length || months[months.length - 1].label !== label) months.push({ label, week: w });
-  }
   monthLabels.innerHTML = "";
-  months.forEach(item => {
+  for (let month = 0; month < 12; month++) {
+    const firstDay = new Date(year, month, 1, 12, 0, 0, 0);
+    const dayOffset = Math.round((firstDay - start) / 86400000) + start.getDay();
+    const week = Math.floor(dayOffset / 7);
     const span = document.createElement("span");
-    span.textContent = item.label;
-    span.style.gridColumn = `${Math.min(item.week + 1, 12)} / span 1`;
+    span.textContent = firstDay.toLocaleDateString("en-US", { month: "short" });
+    span.style.gridColumn = `${week + 1} / span 1`;
     monthLabels.appendChild(span);
-  });
+  }
 
   // Search modal
   const modal = document.getElementById("search-modal");
@@ -225,5 +243,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".mobile-menu").addEventListener("click", () => {
     showToast("Menu is under maintenance.");
   });
-  document.querySelector(".select-button").addEventListener("click", () => showToast("Showing mock activity for the past year."));
+  document.querySelector(".select-button").addEventListener("click", () => showToast("Showing contributions activity for the year."));
 });
