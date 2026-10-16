@@ -1,4 +1,3 @@
-/* Interactive demo behavior. All profile stats and repository data are mock content. */
 document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide) window.lucide.createIcons();
 
@@ -19,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     following = !following;
     followButton.textContent = following ? "Following" : "Follow";
     followButton.classList.toggle("following", following);
-    followerCount.textContent = following ? "129" : "128";
-    showToast(following ? "You're now following Alex Morgan." : "You unfollowed Alex Morgan.");
+    followerCount.textContent = following ? "4" : "3";
+    showToast(following ? "You're now following Edrain." : "You unfollowed Edrian.");
   });
 
   // Tabs
@@ -224,8 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast(`${link.textContent.trim()}: demo repository preview.`);
   }));
   document.querySelector(".mobile-menu").addEventListener("click", () => {
-    showToast("Menu is a visual demo in this portfolio.");
+    showToast("Menu is under maintenance.");
   });
-  document.querySelector(".avatar-small").addEventListener("click", () => showToast("Profile menu is a visual demo."));
   document.querySelector(".select-button").addEventListener("click", () => showToast("Showing mock activity for the past year."));
 });

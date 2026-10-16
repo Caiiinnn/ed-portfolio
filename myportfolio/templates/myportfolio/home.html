@@ -1,14 +1,14 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#010409" />
-  <meta name="description" content="A student developer portfolio inspired by GitHub's dark interface." />
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="{% static 'myportfolio/css/style.css' %}" />
-  <script defer src="{% static 'myportfolio/js/script.js' %}"></script>
+  <meta name="description" content="A student portfolio inspired by GitHub's dark interface." />
+  <title>Portfolio · Edrian Villacencio</title>
+  <link rel="stylesheet" href="{% static 'myportfolio/css/style.css' %}"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <header class="global-header">
@@ -20,14 +20,10 @@
       </button>
       <nav class="global-links" aria-label="Global navigation">
         <a href="#repositories" data-tab-link="repositories">Pull requests</a>
-        <a href="#issues" data-tab-link="issues">Issues</a>
-        <a href="#projects" data-tab-link="projects">Marketplace</a>
-        <a href="#explore" data-tab-link="explore">Explore</a>
+        <a href="#issues" data-tab-link="issues">Contact</a>
       </nav>
     </div>
     <div class="header-right">
-      <button class="icon-button" title="Notifications" aria-label="Notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
-      <button class="avatar avatar-small" aria-label="Open profile menu">ECV</button>
     </div>
   </header>
 
@@ -38,22 +34,23 @@
   <div class="profile-tabs-wrap">
     <nav class="profile-tabs" aria-label="Profile navigation">
       <a class="profile-tab active" href="#overview" data-tab="overview"><i data-lucide="book-open"></i>Overview</a>
-      <a class="profile-tab" href="#repositories" data-tab="repositories"><i data-lucide="book"></i>Repositories <span class="count">12</span></a>
-      <a class="profile-tab" href="#projects" data-tab="projects"><i data-lucide="layout-dashboard"></i>Projects <span class="count">4</span></a>
+      <a class="profile-tab" href="#repositories" data-tab="repositories"><i data-lucide="book"></i>Repositories <span class="count">4</span></a>
+      <a class="profile-tab" href="#projects" data-tab="projects"><i data-lucide="layout-dashboard"></i>Projects <span class="count">2</span></a>
       <a class="profile-tab" href="#packages" data-tab="packages"><i data-lucide="package"></i>Packages</a>
-      <a class="profile-tab" href="#stars" data-tab="stars"><i data-lucide="star"></i>Stars <span class="count">28</span></a>
+      <a class="profile-tab" href="#stars" data-tab="stars"><i data-lucide="star"></i>Stars <span class="count">3</span></a>
     </nav>
   </div>
 
   <main class="page-layout">
+    {# ------ SIDEBAR ----- #}
     <aside class="sidebar">
       <div class="profile-photo-wrap">
-        <div class="profile-photo" aria-label="Illustrated profile avatar"><span>EV</span></div>
+        <div class="profile-photo" aria-label="Illustrated profile avatar"><span>AM</span></div>
         <span class="status-emoji" title="Available for opportunities">☕</span>
       </div>
       <h1 class="display-name">Edrian Cain Villacencio</h1>
       <p class="username">Caiiinnn</p>
-      <p class="bio">Information Tech Student <span class="bio-separator">·</span> Aspiring Full-Stack Developer</p>
+      <p class="bio">Information Tech student <span class="bio-separator">·</span> Aspiring Front-End Developer</p>
       <p class="bio-detail">Curious builder learning by developing projects, one commit at a time. I like clean interfaces, useful tools, and a good cup of coffee.</p>
       <button class="follow-button" id="follow-button">Follow</button>
       <div class="follow-stats">
@@ -64,52 +61,58 @@
       <ul class="profile-details">
         <li><i data-lucide="graduation-cap"></i><span>Cebu Eastern College</span></li>
         <li><i data-lucide="map-pin"></i><span>Cebu City, Philippines</span></li>
-        <li><i data-lucide="mail"></i><a href="mailto:alex@example.com">kainvillacencio@gmail.com</a></li>
+        <li><i data-lucide="mail"></i><a href="mailto:kainvillacencio@gmail.com">kainvillacencio@gmail.com</a></li>
+        <li><i data-lucide="link"></i><a href="https://github.com" target="_blank" rel="noreferrer">Caiiinnn</a></li>
         <li><i data-lucide="clock-3"></i><span>Usually sleeps after class</span></li>
       </ul>
       <div class="sidebar-section">
         <h2>Achievements</h2>
         <div class="achievement-row">
         </div>
-        <p class="muted small">There's no achievement attained yet.</p>
+        <p class="muted small">No achievements attained yet.</p>
       </div>
       <div class="sidebar-section interests">
         <h2>Interests</h2>
-        <div class="topic-list"><span>Front-end</span><span>UI development</span><span>Learning</span><span>Games</span><span>Coding</span></div>
+        <div class="topic-list"><span>Coding</span><span>UI Development</span><span>Games</span><span>Eating</span></div>
       </div>
     </aside>
+    {# ----- SIDEBAR END ------ #}
 
     <section class="main-content">
       <div class="tab-panel active-panel" id="panel-overview">
+
+        {# ----- ABOUT ME TAB ----- #}
         <section class="readme-panel panel">
           <div class="panel-heading"><div class="file-title"><i data-lucide="book-open"></i><strong>README.md</strong></div><button class="icon-button subtle" title="More options"><i data-lucide="ellipsis"></i></button></div>
           <div class="readme-body">
-            <div class="readme-title-row"><span class="readme-wave"></span><h2>Hey there, I'm Cain!</h2></div>
-            <p class="lead">A student developer turning ideas into thoughtful digital experiences.</p>
+            <div class="readme-title-row"><span class="readme-wave">👋</span><h2>Hello World, I'm Edrian!</h2></div>
+            <p class="lead">A student developer turning ideas into thoughtful digital experiences. I am powered by a cup of coffee and good internet connection.</p>
             <hr />
-            <h3><span class="heading-icon"></span> About me</h3>
+            <h3><span class="heading-icon">🚀</span> About me</h3>
             <ul class="readme-list">
-              <li> Studying Computer Science and exploring software engineering.</li>
-              <li> Currently learning <strong>React, Django, REST APIs, and cloud deployment.</strong></li>
-              <li> I enjoy building tools that make everyday tasks a little easier.</li>
-              <li> Looking for internship opportunities and collaborative projects.</li>
+              <li>🎓 Studying Computer Science and exploring software development.</li>
+              <li>🌱 Currently learning <strong>React, Django, REST APIs, and cloud deployment.</strong></li>
+              <li>🛠️ I enjoy building projects that make everyday tasks a little easier.</li>
             </ul>
-            <h3><span class="heading-icon"></span> Tech stack</h3>
+            <h3><span class="heading-icon">💻</span> Tech stack</h3>
             <div class="tech-badges">
               <span class="tech-badge"><span class="tech-dot js"></span>JavaScript</span>
               <span class="tech-badge"><span class="tech-dot py"></span>Python</span>
-              <span class="tech-badge"><span class="tech-dot html"></span>HTML5</span>
-              <span class="tech-badge"><span class="tech-dot css"></span>CSS3</span>
+              <span class="tech-badge"><span class="tech-dot html"></span>HTML</span>
+              <span class="tech-badge"><span class="tech-dot css"></span>CSS</span>
               <span class="tech-badge"><span class="tech-dot django"></span>Django</span>
               <span class="tech-badge"><span class="tech-dot git"></span>Git</span>
               <span class="tech-badge"><span class="tech-dot sql"></span>SQL</span>
             </div>
-            <h3><span class="heading-icon"></span> Goals for this year</h3>
-            <p>Contribute to open source, deepen my backend skills, and ship a polished project that solves a real problem.</p>
+            <h3><span class="heading-icon">🎯</span> Goals for this year</h3>
+            <p>Contribute to open source, deepen my backend skills, and develop a polished project that solves a real problem.</p>
             <div class="readme-footer"><i data-lucide="heart"></i> Thanks for stopping by — let's build something good.</div>
           </div>
         </section>
+        {# ----- ABOUT ME TAB - END ----- #}
 
+
+        {# ----- REPOSITORIES TAB ------ #}
         <div class="section-title-row">
           <h2>Pinned repositories</h2>
           <a href="#repositories" data-tab-link="repositories">Customize your pins</a>
@@ -118,61 +121,61 @@
           <article class="repo-card" data-name="studybuddy" data-description="A study planner with task tracking and focus sessions.">
             <div class="repo-title"><i data-lucide="book-marked"></i><a href="#studybuddy" class="repo-link">studybuddy</a><span class="public-pill">Public</span></div>
             <p>A study planner with task tracking and focus sessions.</p>
-            <div class="repo-meta"><span><i class="language-dot py-dot"></i>Python</span><span><i data-lucide="star"></i>24</span><span><i data-lucide="git-fork"></i>6</span></div>
+            <div class="repo-meta"><span><i class="language-dot py-dot"></i>Python</span></div>
           </article>
           <article class="repo-card" data-name="campus-connect" data-description="A student community board for campus events and announcements.">
             <div class="repo-title"><i data-lucide="book-marked"></i><a href="#campus-connect" class="repo-link">campus-connect</a><span class="public-pill">Public</span></div>
             <p>A student community board for campus events and announcements.</p>
-            <div class="repo-meta"><span><i class="language-dot js-dot"></i>JavaScript</span><span><i data-lucide="star"></i>18</span><span><i data-lucide="git-fork"></i>4</span></div>
+            <div class="repo-meta"><span><i class="language-dot js-dot"></i>JavaScript</span></div>
           </article>
           <article class="repo-card" data-name="pixel-weather" data-description="A responsive weather dashboard with a playful pixel-inspired UI.">
             <div class="repo-title"><i data-lucide="book-marked"></i><a href="#pixel-weather" class="repo-link">pixel-weather</a><span class="public-pill">Public</span></div>
             <p>A responsive weather dashboard with a playful pixel-inspired UI.</p>
-            <div class="repo-meta"><span><i class="language-dot html-dot"></i>HTML</span><span><i data-lucide="star"></i>15</span><span><i data-lucide="git-fork"></i>3</span></div>
+            <div class="repo-meta"><span><i class="language-dot html-dot"></i>HTML</span><span><i class="language-dot css-dot"></i>CSS</span><span><i class="language-dot js-dot"></i>JavaScript</span></div>
           </article>
           <article class="repo-card" data-name="expense-tracker" data-description="A minimal expense tracker with category summaries and charts.">
             <div class="repo-title"><i data-lucide="book-marked"></i><a href="#expense-tracker" class="repo-link">expense-tracker</a><span class="public-pill">Public</span></div>
             <p>A minimal expense tracker with category summaries and charts.</p>
-            <div class="repo-meta"><span><i class="language-dot py-dot"></i>Python</span><span><i data-lucide="star"></i>12</span><span><i data-lucide="git-fork"></i>2</span></div>
-          </article>
-          <article class="repo-card" data-name="portfolio-v2" data-description="My personal portfolio, built with accessible responsive components.">
-            <div class="repo-title"><i data-lucide="book-marked"></i><a href="#portfolio-v2" class="repo-link">portfolio-v2</a><span class="public-pill">Public</span></div>
-            <p>My personal portfolio, built with accessible responsive components.</p>
-            <div class="repo-meta"><span><i class="language-dot css-dot"></i>CSS</span><span><i data-lucide="star"></i>9</span><span><i data-lucide="git-fork"></i>1</span></div>
-          </article>
-          <article class="repo-card" data-name="api-notes" data-description="A small REST API for saving and organizing class notes.">
-            <div class="repo-title"><i data-lucide="book-marked"></i><a href="#api-notes" class="repo-link">api-notes</a><span class="public-pill">Public</span></div>
-            <p>A small REST API for saving and organizing class notes.</p>
-            <div class="repo-meta"><span><i class="language-dot py-dot"></i>Python</span><span><i data-lucide="star"></i>7</span><span><i data-lucide="git-fork"></i>1</span></div>
+            <div class="repo-meta"><span><i class="language-dot py-dot"></i>Python</span><span></div>
           </article>
         </div>
+        {# ----- REPOSITOTIES TAB - END ----- #}
 
+        {# ----- CONTRIBUTIONS TAB ----- #}
         <section class="contributions panel">
           <div class="contribution-heading"><h2><span id="contribution-total">1,284</span> contributions in the last year</h2><button class="select-button">2025 – 2026 <i data-lucide="chevron-down"></i></button></div>
           <div class="graph-scroll">
             <div class="month-labels" id="month-labels"></div>
             <div class="graph-content"><div class="weekday-labels"><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span><span></span></div><div class="contribution-grid" id="contribution-grid" aria-label="Contribution activity graph"></div></div>
           </div>
-          <div class="graph-footer"><a href="#contributions">Learn how we count contributions</a><div class="legend"><span>Less</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>More</span></div></div>
+          <div class="graph-footer"><div class="legend"><span>Less</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>More</span></div></div>
           <p class="graph-tooltip" id="graph-tooltip" role="status"></p>
         </section>
       </div>
+      {# ----- CONTRIBUTIONS TAB - END ----- #}
 
       <section class="tab-panel" id="panel-repositories">
         <div class="list-toolbar"><input id="repo-filter" type="search" placeholder="Find a repository…" aria-label="Filter repositories"><button class="outline-button" id="sort-repos"><i data-lucide="arrow-down-wide-narrow"></i> Sort: A–Z</button></div>
         <div id="repository-list" class="repository-list"></div>
       </section>
+
+      {# ----- PROJECTS TAB ----- #}
       <section class="tab-panel" id="panel-projects">
         <div class="empty-header"><h2>Projects</h2><p>A few things I'm building and learning from.</p></div>
         <div class="project-list">
-          <article class="project-card"><div class="project-icon purple"><i data-lucide="graduation-cap"></i></div><div><h3>Student Productivity Suite</h3><p>One place for assignments, deadlines, study sessions, and notes.</p><div class="project-progress"><span style="width:72%"></span></div><small>In progress · 72%</small></div></article>
-          <article class="project-card"><div class="project-icon green"><i data-lucide="leaf"></i></div><div><h3>Campus Sustainability Map</h3><p>Map refill stations, recycling points, and eco-friendly campus resources.</p><div class="project-progress"><span style="width:40%"></span></div><small>Prototype · 40%</small></div></article>
-          <article class="project-card"><div class="project-icon blue"><i data-lucide="message-square"></i></div><div><h3>Peer Code Review</h3><p>A friendly space for students to share code and give constructive feedback.</p><div class="project-progress"><span style="width:18%"></span></div><small>Planning · 18%</small></div></article>
+          <article class="project-card"><div class="project-icon purple"><i data-lucide="graduation-cap"></i></div><div><h3>Photo Gallery- Android Application</h3><p>One place for viewing photos, videos and other supported extensions.</p><div class="project-progress"><span style="width:72%"></span></div><small>Progress · 72%</small></div></article>
+          <article class="project-card"><div class="project-icon green"><i data-lucide="leaf"></i></div><div><h3>Library Management System</h3><p>Library Primises Management: Student entrance checking, book inventory, book viewing, and borrowing. </p><div class="project-progress"><span style="width:40%"></span></div><small>Progress · 40%</small></div></article>
         </div>
       </section>
+      {# ----- PROJECTS TAB - END ----- #}
+
+      {# ----- PACKAGES TAB ------ #}
       <section class="tab-panel" id="panel-packages">
         <div class="empty-state"><div class="empty-icon"><i data-lucide="package"></i></div><h2>No packages published yet</h2><p>When I publish a package, it will appear here.</p></div>
       </section>
+      {# ----- PACKAGES TAB - END ----- #}
+
+      {# ----- STARRED REPOSITORIES TAB ------ #}
       <section class="tab-panel" id="panel-stars">
         <div class="empty-header"><h2>Starred repositories</h2><p>Projects and tools I find useful.</p></div>
         <div class="starred-list">
@@ -181,10 +184,14 @@
           <article><i data-lucide="book-marked"></i><div><a href="#lucide" class="repo-link">lucide-icons/lucide</a><p>Beautiful & consistent icon toolkit.</p><span class="repo-meta"><i class="language-dot js-dot"></i>TypeScript <i data-lucide="star"></i> 18k</span></div></article>
         </div>
       </section>
-      <footer class="site-footer"><i data-lucide="github"></i><span>© 2026 Edrian Cain Villacencio</span><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#contact">Contact</a><span class="footer-note">Designed with curiosity <span aria-label="love">♥</span></span></footer>
+      {# ------ STARRED REPOSITORIES - END ----- #}
+
+      {# ------ FOOTER ------ #}
+      <footer class="site-footer"><i data-lucide="github"></i><span>© 2026 Edrian Cain Villacencio</span><a href="#privacy">Privacy</a><a href="#terms">Terms</a><span class="footer-note">Designed with <span aria-label="love">♥</span></span></footer>
     </section>
   </main>
 
+  {# ----- SEARCH MODAL ----- #}
   <div class="search-modal" id="search-modal" aria-hidden="true">
     <div class="search-backdrop" data-close-search></div>
     <div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search portfolio">
@@ -193,6 +200,10 @@
       <div class="modal-footer"><span>↑↓ to navigate</span><span>Enter to select</span><span>Esc to close</span></div>
     </div>
   </div>
+
+  {# ----- ALERT MESSAGE ----- #}
   <div class="toast" id="toast" role="status"></div>
+
+  <script src="{% static 'myportfolio/js/script.js' %}"></script>
 </body>
 </html>
