@@ -236,10 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.lucide) window.lucide.createIcons();
     renderRepositories();
   });
-  document.querySelectorAll(".repo-card .repo-link").forEach(link => link.addEventListener("click", event => {
-    event.preventDefault();
-    showToast(`${link.textContent.trim()}: demo repository preview.`);
-  }));
   document.querySelector(".mobile-menu").addEventListener("click", () => {
     showToast("Menu is under maintenance.");
   });
