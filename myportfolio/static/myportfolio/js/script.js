@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderRepositories();
   });
   document.querySelector(".mobile-menu").addEventListener("click", () => {
-    showToast("Menu is under maintenance.");
+    showToast("Menu is under maintenance for mobile view.");
   });
   document.querySelector(".select-button").addEventListener("click", () => showToast("Showing contributions activity for the year."));
 });
