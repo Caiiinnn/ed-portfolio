@@ -1133,7 +1133,7 @@ kbd {
   text-align: center;
  }
 
- .mobile-header-wrap{
+ .mobile-search-wrap{
   display: none;
  }
 
@@ -1196,7 +1196,7 @@ kbd {
 }
 
 @media (max-width: 760px) {
-  .mobile-header-wrap{
+  .mobile-search-wrap{
     display: flex;
     align-items: center;
     gap: 12px;
