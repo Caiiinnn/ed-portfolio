@@ -1133,7 +1133,7 @@ kbd {
   text-align: center;
  }
 
- .mobile-header-actions{
+ .mobile-header-wrap{
   display: none;
  }
 
@@ -1195,22 +1195,30 @@ kbd {
   .contact-lead { max-width: 600px; }
 }
 
-@media (max-width: 760px){
-  .mobile-header-actions{
+@media (max-width: 760px) {
+  .mobile-header-wrap{
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
   }
-  .mobile-menu{
-    display: none !important;
+  .mobile-search{
+    flex: 1;
+    min-width: 0;
+    width: 0;
+    box-sizing: border-box;
   }
   .mobile-contact-link{
     display: inline-flex;
     align-items: center;
-    color: var(--text-color, #f0f6fc);
-    text-decoration: none;
-    font-size: 14px;
+    justify-content: center;
+    flex-shrink: 0;
     white-space: nowrap;
+    margin: 0;
+    font-size: 14px;
+    padding: 8px 0;
+    text-decoration: none;
+    color: var(--text-color, f0f6fc);
   }
   .mobile-contact-link:hover{
     text-decoration: underline;
