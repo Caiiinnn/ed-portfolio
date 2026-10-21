@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       event.preventDefault();
+      showToast(`${link.textContent.trim()} is a demo navigation item.`);
     }
   }));
   const initial = location.hash.replace("#", "");
@@ -135,8 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ...repoCards.map(card => ({ name: card.dataset.name, description: card.dataset.description, type: "Repository", icon: "book-marked", tab: "repositories" })),
     { name: "React", description: "JavaScript UI library", type: "Tech stack", icon: "code", tab: "overview" },
     { name: "Python", description: "Programming language", type: "Tech stack", icon: "code", tab: "overview" },
-    { name: "Student Productivity Suite", description: "Project in progress", type: "Project", icon: "layout-dashboard", tab: "projects" },
-    { name: "Campus Sustainability Map", description: "Project prototype", type: "Project", icon: "layout-dashboard", tab: "projects" },
+    { name: "Photo Gallery", description: "Project in progress", type: "Project", icon: "layout-dashboard", tab: "projects" },
+    { name: "Library Management", description: "Project prototype", type: "Project", icon: "layout-dashboard", tab: "projects" },
     { name: "Achievements", description: "Badges and milestones", type: "Profile", icon: "award", tab: "overview" }
   ];
   function openSearch() {
@@ -235,22 +236,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.lucide) window.lucide.createIcons();
     renderRepositories();
   });
-  const mobileMenuButton = document.querySelector(".mobile-menu");
-  const mobileNav = document.querySelector(".mobile-nav");
-    if(mobileMenuButton & mobileNav){
-      mobileMenuButton.addEventListener("click", () => {
-        const isOpen = mobileNav.classList.toggle("open");
-
-        mobileMenuButton.setAttribute("aria-expanded", isOpen);
-        mobileNav.setAttribute("aria-hidden", !isOpen);
-      })
-
-      mobileNav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          mobileNav.classList.remove("open");
-          mobileMenuButton.setAttribute("aria-expanded", "false");
-          mobileNav.setAttribute("aria-hidden", "true");
-        })
-      })
-    }
 });
