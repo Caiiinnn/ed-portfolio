@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       event.preventDefault();
-      showToast(`${link.textContent.trim()} is a demo navigation item.`);
     }
   }));
   const initial = location.hash.replace("#", "");
