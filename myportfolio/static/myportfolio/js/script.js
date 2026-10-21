@@ -235,8 +235,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.lucide) window.lucide.createIcons();
     renderRepositories();
   });
-  document.querySelector(".mobile-menu").addEventListener("click", () => {
-    showToast("Menu is under maintenance for mobile view.");
-  });
-  document.querySelector(".select-button").addEventListener("click", () => showToast("Showing contributions activity for the year."));
+  const mobileMenuButton = document.querySelector(".mobile-menu");
+  const mobileNav = document.querySelector(".mobile-nav");
+    if(mobileMenuButton & mobileNav){
+      mobileMenuButton.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.toggle("open");
+
+        mobileMenuButton.setAttribute("aria-expanded", isOpen);
+        mobileNav.setAttribute("aria-hidden", !isOpen);
+      })
+
+      mobileNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("open");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+          mobileNav.setAttribute("aria-hidden", "true");
+        })
+      })
+    }
 });
