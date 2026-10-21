@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -7,8 +6,6 @@ from django.views.decorators.http import require_http_methods
 
 def home(request):
 	return render(request, 'myportfolio/home.html')
-def contact(request):
-	return render(request, 'myportfolio/contact.html')
 
 @require_http_methods(["GET", "POST"])
 def contact(request):
@@ -39,6 +36,7 @@ def contact(request):
                 reply_to=[sender_email],
             )
         except Exception:
+            logging.exeption("Portfolio contact email failed.")
             messages.error(request, "Your message could not be sent right now. Please email me directly.")
         else:
             messages.success(request, "Thanks! Your message has been sent.")
