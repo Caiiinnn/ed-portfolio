@@ -24,7 +24,7 @@ import os
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-local-development-key',)
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "kainvillacencio@gmail.com")
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", os.environ.get("EMAIL_HOST_USER", "kainvillacencio@gmail.com"))
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 

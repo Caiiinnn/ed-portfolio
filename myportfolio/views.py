@@ -36,7 +36,6 @@ def contact(request):
                 reply_to=[sender_email],
             )
         except Exception:
-            logging.exeption("Portfolio contact email failed.")
             messages.error(request, "Your message could not be sent right now, this Portfolio is currently in testing phase. Please email me directly.")
         else:
             messages.success(request, "Thanks! Your message has been sent.")
