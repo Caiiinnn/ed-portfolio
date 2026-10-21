@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast(following ? "You're now following Edrain." : "You unfollowed Edrian.");
   });
 
-  // Tabs
   const tabs = [...document.querySelectorAll(".profile-tab")];
   const panels = [...document.querySelectorAll(".tab-panel")];
   function activateTab(tabName) {
@@ -59,8 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const initial = location.hash.replace("#", "");
   if (initial) activateTab(initial);
 
-  // Mock contribution graph for the full 2026 calendar year.
-  // Contributions are shown from January through October; November and December stay empty.
   const grid = document.getElementById("contribution-grid");
   const tooltip = document.getElementById("graph-tooltip");
   const year = 2026;
@@ -71,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateFmt = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" });
   let total = 0;
 
-  // Pad the first week so columns align Sunday through Saturday, like GitHub.
   for (let pad = 0; pad < start.getDay(); pad++) {
     const blank = document.createElement("span");
     blank.className = "contribution-cell contribution-empty";
@@ -84,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     day.setDate(start.getDate() + i);
     let count = 0;
 
-    // Keep the same sparse activity level, and leave Nov-Dec completely empty.
     if (day.getMonth() < 10) {
       let seed = Math.abs(Math.sin((i + 17) * 12.9898) * 43758.5453) % 1;
       if (day.getDay() === 0 || day.getDay() === 6) seed *= .48;
@@ -105,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.appendChild(cell);
   }
 
-  // Pad the final week to keep the year grid rectangular.
   while (grid.children.length < totalWeeks * 7) {
     const blank = document.createElement("span");
     blank.className = "contribution-cell contribution-empty";
@@ -127,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     monthLabels.appendChild(span);
   }
 
-  // Search modal
   const modal = document.getElementById("search-modal");
   const searchInput = document.getElementById("global-search-input");
   const searchResults = document.getElementById("search-results");
